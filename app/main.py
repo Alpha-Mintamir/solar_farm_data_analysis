@@ -6,13 +6,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-# Path to data files
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Adjust the path to the data files
 data_paths = {
-    'benin': 'C:\\solar_farm_data_analysis\\solar_farm_data_analysis\\data\\benin-malanville.csv',
-    'sierraleone': 'C:\\solar_farm_data_analysis\\solar_farm_data_analysis\\data\\sierraleone-bumbuna.csv',
-    'togo': 'C:\\solar_farm_data_analysis\\solar_farm_data_analysis\\data\\togo-dapaong_qc.csv'
+    'benin': os.path.join(base_dir, '..', 'data', 'benin-malanville.csv'),
+    'sierraleone': os.path.join(base_dir, '..', 'data', 'sierraleone-bumbuna.csv'),
+    'togo': os.path.join(base_dir, '..', 'data', 'togo-dapaong_qc.csv')
 }
 
+# Normalize paths (to handle '..' correctly)
+data_paths = {key: os.path.normpath(path) for key, path in data_paths.items()}
 # Print file sizes
 file_sizes = {key: os.path.getsize(path) for key, path in data_paths.items()}
 print(file_sizes)
