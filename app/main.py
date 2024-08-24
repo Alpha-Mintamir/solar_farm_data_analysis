@@ -33,14 +33,14 @@ for key, url in file_urls.items():
 
 def load_data():
     def optimize_memory_usage(df):
-        # Optimize memory usage for numerical columns
+        # Optimizing memory usage for numerical columns
         for col in df.select_dtypes(include=['float64']).columns:
             df[col] = pd.to_numeric(df[col], downcast='float')
         for col in df.select_dtypes(include=['int64']).columns:
             df[col] = pd.to_numeric(df[col], downcast='integer')
         return df
     
-    # Load data and optimize memory usage
+    # Loading data and optimize memory usage
     df_benin = pd.read_csv(data_paths['benin'])
     df_sierraleone = pd.read_csv(data_paths['sierraleone'])
     df_togo = pd.read_csv(data_paths['togo'])
@@ -90,7 +90,7 @@ def plot_histogram(df, column):
     plt.title(f'Histogram of {column}')
     st.pyplot(plt)
 
-# Load the data
+# Loading the data
 df_benin, df_sierraleone, df_togo = load_data()
 
 # Streamlit app
@@ -128,7 +128,7 @@ st.write(detect_outliers(df_sierraleone, 'GHI'))
 st.subheader('Togo Outliers')
 st.write(detect_outliers(df_togo, 'GHI'))
 
-# Plot time series
+#  time series
 st.subheader('Benin GHI Time Series')
 plot_time_series(df_benin, 'GHI')
 st.subheader('Sierra Leone GHI Time Series')
@@ -136,7 +136,7 @@ plot_time_series(df_sierraleone, 'GHI')
 st.subheader('Togo GHI Time Series')
 plot_time_series(df_togo, 'GHI')
 
-# Plot correlation heatmaps
+# correlation heatmaps
 st.subheader('Benin Correlation Heatmap')
 plot_correlation_heatmap(df_benin)
 st.subheader('Sierra Leone Correlation Heatmap')
@@ -144,7 +144,7 @@ plot_correlation_heatmap(df_sierraleone)
 st.subheader('Togo Correlation Heatmap')
 plot_correlation_heatmap(df_togo)
 
-# Plot wind polar plots
+#  wind polar plots
 st.subheader('Benin Wind Polar Plot')
 plot_wind_polar(df_benin)
 st.subheader('Sierra Leone Wind Polar Plot')
@@ -152,7 +152,7 @@ plot_wind_polar(df_sierraleone)
 st.subheader('Togo Wind Polar Plot')
 plot_wind_polar(df_togo)
 
-# Plot histograms
+# histograms
 st.subheader('Benin GHI Histogram')
 plot_histogram(df_benin, 'GHI')
 st.subheader('Sierra Leone GHI Histogram')
