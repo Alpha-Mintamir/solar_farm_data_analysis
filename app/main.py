@@ -5,21 +5,31 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+import gdown
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Adjust the path to the data files
-data_paths = {
-    'benin': os.path.join(base_dir, '..', 'data', 'benin-malanville.csv'),
-    'sierraleone': os.path.join(base_dir, '..', 'data', 'sierraleone-bumbuna.csv'),
-    'togo': os.path.join(base_dir, '..', 'data', 'togo-dapaong_qc.csv')
+# Define the Google Drive file IDs and URLs
+file_ids = {
+    'benin': '1oZEwKljb0YzjdEgSsyu_stvbo2ctyxWe',
+    'sierraleone': '14nUPEMmoxcpGMNCEjGOz5a-paYmoiR08',
+    'togo': '1nVy9arGw7vl9vjd3Vl2_3ArgSS6B4UES'
 }
 
-# Normalize paths (to handle '..' correctly)
-data_paths = {key: os.path.normpath(path) for key, path in data_paths.items()}
-# Print file sizes
-file_sizes = {key: os.path.getsize(path) for key, path in data_paths.items()}
-print(file_sizes)
+# Define download URLs
+file_urls = {key: f'https://drive.google.com/uc?id={file_id}' for key, file_id in file_ids.items()}
+
+# Define paths to save the downloaded files
+data_paths = {
+    'benin': 'data/benin-malanville.csv',
+    'sierraleone': 'data/sierraleone-bumbuna.csv',
+    'togo': 'data/togo-dapaong_qc.csv'
+}
+
+# Create the data directory if it doesn't exist
+os.makedirs('data', exist_ok=True)
+
+# Download files from Google Drive
+for key, url in file_urls.items():
+    gdown.download(url, data_paths[key], quiet=False)
 
 def load_data():
     def optimize_memory_usage(df):
