@@ -1,7 +1,7 @@
 # Solar Farm Data Analysis
 
 ## Overview
-This project analyzes solar farm data from Benin, Sierra Leone, and Togo to uncover key insights about solar irradiance and related parameters. The analysis involves data preprocessing, statistical analysis, and various visualizations to help understand the patterns and trends in the solar data. The results are presented through an interactive Streamlit dashboard, making it easy to explore the data and findings.
+This project analyzes solar farm data from Benin, Sierra Leone, and Togo to uncover key insights about solar irradiance and related parameters. The analysis involves data preprocessing, statistical analysis, and various visualizations to help understand the patterns and trends in the solar data. The results are presented through an interactive Streamlit dashboard(https://alpha-mintamir-solar-farm-data-analysis-appmain-y6rsre.streamlit.app/) , making it easy to explore the data and findings.
 
 ## Project Structure
 The repository is organized as follows:
