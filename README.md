@@ -37,9 +37,9 @@ To run this project locally, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/solar-farm-data-analysis.git
+   git clone https://github.com/Alpha-Mintamir/solar-farm-data-analysis.git
    cd solar-farm-data-analysis
-## Install Dependencies
+  ## Install Dependencies
 
 Create a virtual environment (optional but recommended), and install the required packages:
 
@@ -48,13 +48,11 @@ python -m venv myenv
 source myenv/bin/activate  # On Windows, use `myenv\Scripts\activate`
 pip install -r requirements.txt
 
-## Run the Streamlit App 
+## Run the Streamlit App
+
 
 Launch the Streamlit dashboard:
 
-```bash
-streamlit run app.py
-## Access the Dashboard
-
-After running the command, Streamlit will start a local server. You can access the dashboard in your web browser at:http://localhost:8501
+   ```bash
+  streamlit run app.py
 
